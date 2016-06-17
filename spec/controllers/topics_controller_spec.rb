@@ -72,7 +72,7 @@ RSpec.describe TopicsController, type: :controller do
 
       expect(topic_instance.id).to eq my_topic.id
       expect(topic_instance.name).to eq my_topic.name
-      expect(topic_instance.description).to eq my_topic.id.description
+      expect(topic_instance.description).to eq my_topic.description
     end
   end
 
