@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:new, :create]
 
+  resources :post, only: [] do
+    resources :comments, only: [:create, :destroy]
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
   get 'welcome/index'
 
