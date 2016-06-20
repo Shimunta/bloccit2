@@ -272,4 +272,25 @@ RSpec.describe TopicsController, type: :controller do
       end
     end
   end
+
+  context "moderator" do
+    before do
+      user = User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld", role: :moderator)
+      create_session(user)
+    end
+    describe "update a topic" do
+      it "updates exisiting topics with new attributes" do
+        new_name = RandomData.random_sentence
+        new_description = RandomData.random_paragraph
+
+        put :update, id: my_topic.id, topic: {name: new_name, description: new_description}
+
+        updated_topic = assigns(:topic)
+        expect(updated_topic.id).to eq my_topic.id
+        expect(updated_topic.name).to eq new_name
+        expect(updated_topic.description).to eq new_description
+      end
+    end
+
+  end
 end
