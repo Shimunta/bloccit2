@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  </head>
+  <body>
+    <h1>You are now following comments for "<%= @post.title %>"</h1>
+    <small>
+      <p>
+        <%= link_to "View Post on site", topic_post_url(@post.topic, @post) %>
+      </p>
+    </small>
+  </body>
+</html>
