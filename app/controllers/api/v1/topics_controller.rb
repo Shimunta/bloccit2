@@ -1,0 +1,13 @@
+class Api::V1::TopicsController < Api::V1::BaseController
+  before_action :authenticate_user, expect: [:index, :show]
+  before_action :authorize_user, expect: [:index, :show]
+
+  def index
+    topics = Topic.all
+    render json: topics, status: 200
+  end
+
+  def show
+    topic = Topic.find(params[:id])
+    render json: topic, status: 200
+  end
